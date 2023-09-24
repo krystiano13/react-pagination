@@ -8,7 +8,7 @@ const array = [0, 2, 3, 1, 1, 2, 0, 3, 2, 1, 1, 0, 0];
 
 const App = () => {
   const [trueArray, setTrueArray] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   const previousPage = () => {
     if (page - 1 >= 0) {
@@ -56,9 +56,10 @@ const App = () => {
           <Card colorId={item} />
         ))}
       </Items>
-      <Buttons className="">
-        <button onClick={previousPage}>prev</button>
-        <button onClick={nextPage}>next</button>
+      <Buttons className="flex jc-center ai-center">
+        <button className="m-2" onClick={previousPage}>prev</button>
+        <p className="m-2">{page}</p>
+        <button className="m-2" onClick={nextPage}>next</button>
       </Buttons>
     </Wrapper>
   );
