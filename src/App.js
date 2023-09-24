@@ -4,6 +4,8 @@ import Items from "./components/Items";
 import { Card } from "./components/Card";
 import { useState, useEffect } from "react";
 
+const array = [0, 2, 3, 1, 1, 2, 0, 3, 2, 1, 1, 0, 0];
+
 const App = () => {
   const [trueArray, setTrueArray] = useState([]);
   const [page, setPage] = useState(1);
@@ -13,12 +15,15 @@ const App = () => {
       setPage((prev) => prev - 1);
       showCards();
     }
-    };
-    
-    
+  };
+
+  const nextPage = () => {
+    if ((page + 1) * 9 < array.length) {
+      setPage((prev) => prev + 1);
+    }
+  };
 
   const showCards = () => {
-    const array = [0, 2, 3, 1, 1, 2, 0, 3, 2, 1, 1, 0, 0];
     let dummyArray = [];
     let last = array.length;
 
@@ -53,7 +58,7 @@ const App = () => {
       </Items>
       <Buttons className="">
         <button onClick={previousPage}>prev</button>
-        <button>next</button>
+        <button onClick={nextPage}>next</button>
       </Buttons>
     </Wrapper>
   );
