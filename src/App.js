@@ -1,6 +1,13 @@
+import Wrapper from "./components/Wrapper";
+import Buttons from "./components/Buttons";
+import Items from "./components/Items";
+
 const App = () => {
     return (
-        <h1>React Pagination</h1>
+        <Wrapper className="bg-primary"> 
+            <Items className=""></Items>
+            <Buttons className=""></Buttons>
+        </Wrapper>
     )
 }
 
