@@ -34,17 +34,12 @@ const App = () => {
     }
 
     dummyArray = array.slice(page * 9, last);
-    console.log(dummyArray);
     setTrueArray(dummyArray);
   };
 
   useEffect(() => {
     showCards();
   }, [page]);
-
-  useEffect(() => {
-    console.log("changed");
-  }, [trueArray]);
 
   return (
     <Wrapper
@@ -57,9 +52,19 @@ const App = () => {
         ))}
       </Items>
       <Buttons className="flex jc-center ai-center">
-        <button className="m-2" onClick={previousPage}>prev</button>
-        <p className="m-2">{page}</p>
-        <button className="m-2" onClick={nextPage}>next</button>
+        <button
+          className="m-2 font-head f-m p-1 pl-5 pr-5 br-1 bg-secondary color c-pointer"
+          onClick={previousPage}
+        >
+          prev
+        </button>
+        <p className="m-2 font-other f-400 f-xl">{page}</p>
+        <button
+          className="m-2 font-head f-m p-1 pl-5 pr-5 br-1 bg-secondary color c-pointer"
+          onClick={nextPage}
+        >
+          next
+        </button>
       </Buttons>
     </Wrapper>
   );
